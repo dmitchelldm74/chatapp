@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>ChatApp</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="static/style.css">
+    </head>
+    <body>
+        <div class="header">
+          <h1>ChatApp</h1>
+        </div>
+        <div class="row">
+            <div class="col-5">
+                <form action="/" method="POST">
+                    <input type="hidden" name="id" value="LOGIN"/>
+                    <h1>Log-In</h1>
+                    <input placeholder="Username..." name="username" type="text" /><br><br>
+                    <input placeholder="Password..." name="password" type="password" /><br><br>
+                    <input class="button2" type="submit" value="LOG-IN" /><br>
+                </form>
+            </div>
+            <div class="col-5">
+                <form action="/" method="POST">
+                    <input type="hidden" name="id" value="CREATE"/>
+                    <h1>Create An Account</h1>
+                    <input placeholder="Username..." name="username" type="text" /><br><br>
+                    <input placeholder="Password..." name="password" type="password" /><br><br>
+                    <input class="button2" type="submit" value="CREATE" /><br>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>ChatApp</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="static/style.css">
+    </head>
+    <body>
+        <div class="header">
+          <h1>ChatApp</h1>
+        </div>
+
+        <div class="row">
+
+        <div class="col-3 menu">
+          <ul>
+            <form method="POST">
+                <input type="hidden" name="id" value="LOGOUT" />
+                    <li><input class="menu-btn" type="submit" value="LOGOUT"/></li>
+            </form>
+            <form method="POST">
+                <input type="hidden" name="id" value="LOG" />
+                    <li><input class="menu-btn" type="submit" value="CHECK LOG"/></li>
+            </form>
+          </ul>
+        </div>
+        <div class="col-6 col-m-9">
+            <form method="POST">
+                <input type="hidden" name="id" value="MESSAGE" />
+                <input name="to" type="text" placeholder="To..." {%if to != None%}value="{{to}}"{%endif%}/><br><br>
+                <textarea name="content" name="content" placeholder="Message..."></textarea><br><br>
+                <input class="button2 full" type="submit" value="SEND" />
+            </form>
+            <a href="">Refresh</a><br><br>
+                {% set i = 0 %}
+                {% for m in messages %}
+                    <div id="message-{{i}}" class="message-box">
+                        <div class="message-title">From: <a href="?to={{ m[1] }}">&lt;{{ m[1] }}&gt;</a> - Sent at: <{{ m[4] }}></div>
+                            <pre class="message-content">
+From: <a href="?to={{ m[1] }}">&lt;{{ m[1] }}&gt;</a>
+To: <a href="?to={{ m[2] }}">&lt;{{ m[2] }}&gt;</a>
+Timestamp: <{{ m[4] }}>
+Content:
+{{ m[3] }}
+                            </pre>
+                    </div>
+                    {% set i = i+1 %}
+                {% endfor %}
+        </div>
+        </div>  
+        <div class="row">
+          
+        </div>
+    </body>
+</html>
