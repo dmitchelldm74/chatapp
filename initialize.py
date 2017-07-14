@@ -1,7 +1,7 @@
 import os
 
 commands = [
-    "sqlite3 db.db < schema.sql"
+    "sqlite3 database.db < schema.sql"
 ]
 
 for c in commands:
