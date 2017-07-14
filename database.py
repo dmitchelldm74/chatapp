@@ -21,7 +21,7 @@ class AUTH():
         
     def login(self, user, password):
         password = self.hashps(password)
-        if self.cursor.execute('SELECT * FROM users WHERE username=? AND password=?', (user, password)):
+        if self.cursor.execute('SELECT * FROM users WHERE username=? AND password=?', (user, password)).fetchone() != None:
             self.credentials = (self.__key, user, password)
             self.response.set_cookie('AUTH', self.__key)
             self.response.headers['Refresh'] = '1'
